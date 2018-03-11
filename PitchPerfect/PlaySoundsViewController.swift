@@ -54,30 +54,20 @@ class PlaySoundsViewController: UIViewController {
         stopAudio()
     }
 
+    func setImages(button: UIButton){
+        button.contentMode = .center
+        button.imageView?.contentMode = .scaleAspectFit
+    }
+    
     override func viewDidLoad() {
-        
-        self.snailButton.contentMode = .center
-        self.snailButton.imageView?.contentMode = .scaleAspectFit
-        
-        self.rabbitButton.contentMode = .center
-        self.rabbitButton.imageView?.contentMode = .scaleAspectFit
-        
-        self.chipmunkButton.contentMode = .center
-        self.chipmunkButton.imageView?.contentMode = .scaleAspectFit
-        
-        self.reverbButton.contentMode = .center
-        self.reverbButton.imageView?.contentMode = .scaleAspectFit
-        
-        self.vaderButton.contentMode = .center
-        self.vaderButton.imageView?.contentMode = .scaleAspectFit
-        
-        self.echoButton.contentMode = .center
-        self.echoButton.imageView?.contentMode = .scaleAspectFit
-        
-        
+        self.setImages(button: snailButton)
+        self.setImages(button: rabbitButton)
+        self.setImages(button: chipmunkButton)
+        self.setImages(button: reverbButton)
+        self.setImages(button: vaderButton)
+        self.setImages(button: echoButton)
         super.viewDidLoad()
         setupAudio()
-
     }
     
     
