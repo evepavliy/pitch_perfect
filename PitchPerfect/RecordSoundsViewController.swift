@@ -23,11 +23,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, AVA
         // Do any additional setup after loading the view, typically from a nib.
         stopRecordingButton.isEnabled = false
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewWillAppear called")
-    }
-    
 
     @IBAction func recordAudio(_ sender: Any) {
         recordingLabel.text = "Recording in Progress"
