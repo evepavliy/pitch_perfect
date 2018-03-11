@@ -73,7 +73,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, AVA
                     
                     // create the alert
                     let alert = UIAlertController(title: "Warning", message: "Record was not succesful", preferredStyle: UIAlertControllerStyle.alert)
-                    
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
                     // show the alert
                     self.present(alert, animated: true, completion: nil)
                 }
