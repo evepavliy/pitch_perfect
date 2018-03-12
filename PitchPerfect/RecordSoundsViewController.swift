@@ -38,7 +38,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, AVA
         let filePath = NSURL.fileURL(withPathComponents: pathArray)
         print(filePath!)
         let session = AVAudioSession.sharedInstance()
-       try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
         try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
         print(filePath!)
         audioRecorder.delegate = self
@@ -46,12 +46,14 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, AVA
         audioRecorder.prepareToRecord()
         audioRecorder.record()
     }
+    
     @IBAction func stopRecording(_ sender: Any) {
        configureUI(isRecording:false)
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try!audioSession.setActive(false)
     }
+    
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: recorder.url)
@@ -73,6 +75,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate, AVA
             }
         }
    }
+    
     override func prepare(for segue:UIStoryboardSegue , sender: Any?){
         if segue.identifier == "stopRecording"{
             let playSoundsVC = segue.destination as! PlaySoundsViewController
